@@ -1,29 +1,27 @@
 # by:Snowkingliu
 # 2023/2/24 17:39
 
+
+def get_array_num(x):
+    return int((x ** 0.5) % 1 == 0)
+
+
+def get_one_set():
+    return {i**2 for i in range(1, int(1e9**0.5))}
+
+
 def main():
-    print("\nPlease input request time.")
-    times = input()
+    times = int(input())
+    # one_set = get_one_set()
     arr = []
-    if not times.isalnum() or not (1 < int(times) < 1500000):
-        print(f"Invalid input")
-        return
-    for idx in range(int(times)):
-        a_idx = input()
-        if not times.isalnum() or not (1 <= int(a_idx) <= int(10**9)):
-            print(f"Invalid input")
-            return
-        arr.append(int(a_idx))
+    for idx in range(times):
+        arr.append(int(input()))
 
-    res = [str(get_array_num(a_idx)) for a_idx in arr]
-    for r in res:
-        print(r)
-    # return '\n'.join(res)
+    for idx in arr:
+        x = 8 * idx - 7
+        # print(1 if x in one_set else 0)
+        print(get_array_num(x))
 
 
-def get_array_num(a_idx):
-    return int((-1 + (1 + 8 * (a_idx - 1))**0.5) % 1 == 0)
-
-
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()
